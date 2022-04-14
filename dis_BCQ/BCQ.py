@@ -141,7 +141,7 @@ class BCQ():
         self.__save_generative()
 
     def __eval_generative(self):
-        #这里的Eval应该用测试集的，我没有
+        #这里的Eval应该用一个预先分割好的测试集
         with torch.no_grad():
             self.G_w.eval()
             #idxs = np.random.choice(
