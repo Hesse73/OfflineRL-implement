@@ -141,7 +141,7 @@ class BCQ():
         self.__save_generative()
 
     def __eval_generative(self):
-        #这里的Eval应该用测试集的，我没有
+        #这里的Eval应该用一个预先分割好的测试集的
         with torch.no_grad():
             self.G_w.eval()
             #idxs = np.random.choice(
@@ -267,9 +267,8 @@ class BCQ():
 
 
 if __name__ == '__main__':
-    train_G_w = False
     cfg = BCQconfig()
     bcq = BCQ(cfg)
-    bcq.train(train_G_w)
+    bcq.train(train_G_w = False)
     env = gym.make('CartPole-v1')
-    bcq.eval(env)
+    bcq.eval(env=env)
